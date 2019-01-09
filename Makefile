@@ -13,12 +13,10 @@ REMOTE_FILE = AdGuardHome_v${VERSION}_linux_amd64.tar.gz
 test:
 	@echo ${IMAGE_NAME}
 
-build: get
-	docker build -t ${IMAGE_NAME}:latest .
-
-get:
+build:
 	wget -c https://github.com/AdguardTeam/AdGuardHome/releases/download/v${VERSION}/${REMOTE_FILE}
 	tar xzvf ${REMOTE_FILE}
+	docker build -t ${IMAGE_NAME}:latest .	
 
 fresh_build:
 	docker build --no-cache t ${IMAGE_NAME}:latest .
