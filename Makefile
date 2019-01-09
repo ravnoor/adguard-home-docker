@@ -1,5 +1,5 @@
 NAME = adguard-home
-VERSION := 0.9
+VERSION := 0.92-hotfix1
 
 ifdef DOCKER_HUB_USERNAME
 IMAGE_NAME = ${DOCKER_HUB_USERNAME}/${NAME}
