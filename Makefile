@@ -1,4 +1,5 @@
 NAME = adguard-home
+DOCKER_HUB_USERNAME = neuressence
 VERSION := 0.92-hotfix1
 
 ifdef DOCKER_HUB_USERNAME
@@ -16,10 +17,8 @@ build: get
 	docker build -t ${IMAGE_NAME}:latest .
 
 get:
-ifeq (,$(wildcard ./${REMOTE_FILE}))
 	wget -c https://github.com/AdguardTeam/AdGuardHome/releases/download/v${VERSION}/${REMOTE_FILE}
 	tar xzvf ${REMOTE_FILE}
-endif
 
 fresh_build:
 	docker build --no-cache t ${IMAGE_NAME}:latest .
